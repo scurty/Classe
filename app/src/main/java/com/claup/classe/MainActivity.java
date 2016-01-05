@@ -19,6 +19,8 @@ import android.view.ViewGroup;
 
 import android.widget.Button;
 import android.widget.TextView;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,10 +70,13 @@ mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
     }
 
-    });
+});
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -154,6 +159,10 @@ mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
 
             textViewBt.setText(String.valueOf(contador.getNumero()));
+
+            AdView mAdView = (AdView) rootView.findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
 
             return rootView;
         }
