@@ -1,9 +1,11 @@
 package com.claup.classe;
 
+import java.io.Serializable;
+
 /**
  * Created by Sidney on 05/01/2016.
  */
-public class Contador {
+public class Contador implements Serializable {
 
     private int numero = 0;
 
@@ -12,7 +14,16 @@ public class Contador {
         return numero;
     }
 
-    public void setNumero() {
+    public void setNumero(int _numero) {
+        numero = _numero;
+    }
+
+    public void addNumero() {
         numero = numero + 1;
+    }
+
+    public int addgetNumero() {
+        numero = numero + 1;
+        return numero;
     }
 }
